@@ -78,12 +78,16 @@ def ath_checker(ath_dict):
                         update.append("$" + "{:,}".format(coin['market_cap']))
                         update.append(str(coin['price_change_percentage_24h']) + "%")
                         update.append("$" + "{:,}".format(coin['total_volume']))
+                        update.append("$" + "{:,}".format(coin['ath']))
 
                         # Send message to TG chat with update
                         bot.send_message(chat_id=tg_chat_id, parse_mode='HTML', text=f"<b>{update[0]}</b> " +
-                                         "has reached a new all time high!" + '\n\n' + "<b>Current Price:</b> " + update[1]
-                                         + '\n' + "<b>Market Cap Rank:</b> " + update[2] + '\n' + "<b>Market Cap:</b> " +
-                                         update[3] + '\n' + "<b>24hr Price Change:</b> " + update[4]
+                                         "has reached a new all time high!"
+                                         + '\n\n' + "<b>New ATH:</b> " + update[6]
+                                         + '\n' + "<b>Current Price:</b> " + update[1]
+                                         + '\n' + "<b>Market Cap Rank:</b> " + update[2]
+                                         + '\n' + "<b>Market Cap:</b> " + update[3]
+                                         + '\n' + "<b>24hr Price Change:</b> " + update[4]
                                          + '\n' + "<b>Volume:</b> " + update[5], timeout=60)
                         logger.info(f"Bot coin update message sent: {coin['name']}")
 
