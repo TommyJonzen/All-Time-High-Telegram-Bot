@@ -1,0 +1,1 @@
+API_KEY = 'YOUR TG API KEY'
